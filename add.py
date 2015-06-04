@@ -72,7 +72,6 @@ with requests.Session() as s:
     # Login page headers with a fake user-agent generator 
     l_headers = { 
         "Referer":"https://login.drexel.edu/cas/login?service=https%3A%2F%2Fone.drexel.edu%2Fc%2Fportal%2Flogin",
-        # "User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36",
         "User-Agent":ua.random
     }   
     
@@ -94,21 +93,62 @@ with requests.Session() as s:
     term = s.get('https://bannersso.drexel.edu/ssomanager/c/SSB?pkg=bwszkfrag.P_DisplayFinResponsibility%3Fi_url%3Dbwskfreg.P_AltPin')
     
     # Grab the Add/Drop Class page cookies
-    ad_cookie = {
+    vad_cookie = {
         'SESSID':term.cookies['SESSID'],
         'IDMSESSID':username
     }
 
     # Specify the term in which you want to add classes
-    ad_payload = {
+    vad_payload = {
         'term_in':term_in
     }
 
     # The final add/drop class URL to POST to. This is where
     # we specify the term in which we want to add/drop classes 
-    ad_url = "https://banner.drexel.edu/pls/duprod/bwskfreg.P_AltPin"
+    vad_url = "https://banner.drexel.edu/pls/duprod/bwskfreg.P_AltPin"
 
-    classes = s.post(ad_url, cookies=ad_cookie, data=ad_payload)
+    # POST the data
+    view = s.post(
+        vad_url, 
+        cookies = vad_cookie, 
+        data = vad_payload
+    )
 
-    # And we're in!
-    print classes.text
+    ad_url = "https://banner.drexel.edu/pls/duprod/bwckcoms.P_Regs"
+
+    # print view.cookies['SESSID']
+
+    foo = s.post(ad_url, cookies = {'SESSID':view.cookies['SESSID']}) 
+    
+    print foo.text
+
+    # Grab the Add/Drop Class page cookies
+    # ad_cookie = { 
+    #     'SESSID':view.cookies['SESSID'],
+    #     'IDMSESSID':username,
+    #     '__utma':''
+    # } 
+    #  
+    # ad_payload = {
+    #     'CRN_IN':'40116',
+    #     'RSTS_IN':'WR',
+    #     'term_in':term_in,
+    #     'REG_BTN':'Submit Changes'
+    # } 
+
+    # ad_headers = { 
+    #     "Referer":"https://banner.drexel.edu/pls/duprod/bwskfreg.P_AltPin",
+    #     "User-Agent":ua.random,
+    #     "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    #     "Host":"banner.drexel.edu"
+    # }   
+
+    # classes = s.post(
+    #     ad_url,
+    #     cookies = ad_cookie,
+    #     data = ad_payload,
+    #     headers = ad_headers
+    # )
+
+    # # And we're in!
+    # print classes.text
