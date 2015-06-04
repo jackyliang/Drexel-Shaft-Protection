@@ -21,3 +21,15 @@ Drexel Shaft Protection allows you to automatically register for classes!
     the term you want to register classes for. 
 
 2. `./add.py`
+
+### Custom Libraries Used
+
+1. `lxml` for HTML/XML parsing and scraping
+
+2. `fake_useragent` to generate randomized fake user agents 
+
+### Development Information
+
+1. Python 2.7.9
+
+2. Debian 8.0 (jessie)
