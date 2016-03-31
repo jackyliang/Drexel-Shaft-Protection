@@ -11,15 +11,28 @@ Drexel Shaft Protection allows you to automatically register for classes!
 
 ### How to use Drexel Shaft Protection
 
-1. Create an `info.json` file within the same directory as the `add.py`. 
+1. Create an `info.json` file within the same directory as the `add.py` and use the following template:
 
-        {   
-            "username":"Your Drexel username",
-            "password":"Your Drexel password"
-        }   
+***Note:*** You can only add maximum 10 CRNs at a time and you MUST follow this exact template
+
+	{   
+	    "username":"Your Drexel username",
+	    "password":"Your Drexel password",
+	    "classes": {
+	    	"1": "33587", # this is an example CRN
+	    	"2": "",
+	    	"3": "",
+	    	"4": "",
+	    	"5": "",
+	    	"6": "",
+	    	"7": "",
+	    	"8": "",
+	    	"9": "",
+	    	"10": ""
+	    }
+	}  
     
-    This serves as the file in which this script will read your Drexel username, password, and 
-    the term you want to register classes for. 
+This serves as the file in which this script will read your Drexel username, password, and the classes you want to register classes for. 
 
 2. `./add.py`
 
