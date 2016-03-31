@@ -28,7 +28,11 @@ Drexel Shaft Protection allows you to automatically register for classes!
 
 1. `lxml` for HTML/XML parsing and scraping
 
+    pip install lxml
+
 2. `fake_useragent` to generate randomized fake user agents 
+
+    pip install fake_useragent
 
 ### What I used to develop Drexel Shaft Protection
 
