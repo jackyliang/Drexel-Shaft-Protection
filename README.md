@@ -15,8 +15,7 @@ Drexel Shaft Protection allows you to automatically register for classes!
 
         {   
             "username":"Your Drexel username",
-            "password":"Your Drexel password",
-            "term_in":"The term you're trying to register for i.e. 201445"
+            "password":"Your Drexel password"
         }   
     
     This serves as the file in which this script will read your Drexel username, password, and 
@@ -33,6 +32,14 @@ Drexel Shaft Protection allows you to automatically register for classes!
 2. `fake_useragent` to generate randomized fake user agents 
 
     pip install fake_useragent
+
+### Common errors and fixes
+
+    print page.cookies['IDMSESSID'] KeyError
+
+This means your username/password is incorrect.
+
+TODO: Catch this exception and return a better error message
 
 ### What I used to develop Drexel Shaft Protection
 
