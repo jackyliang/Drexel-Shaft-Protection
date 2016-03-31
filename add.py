@@ -51,15 +51,22 @@ form=br.form
 form['term_in'] = ['201535',]
 response = br.submit()
 
+# for f in br.forms():
+#     print f
+
 br.select_form(nr=1)
 
 for id_tag, crn in classes.items():
-	if(crn != ''):
-		add_control = br.form.find_control(name='CRN_IN', id='crn_id' + id_tag)
-		add_control.value = crn
+	# Only valid ID tags and non-spaces will be submitted
+	# to the form
+	id_tag_int = int(id_tag)
+	if(id_tag_int >= 1 and id_tag_int <= 10):
+		# print id_tag_int
+		if(crn != ''):
+			print 'Adding your class with CRN ' + crn + "..."
+			add_control = br.form.find_control(name='CRN_IN', id='crn_id' + id_tag)
+			add_control.value = crn
+			print 'Successfully added your class with CRN ' + crn + "!"
 
 response = br.submit()
-print response.get_data()
-
-for control in br.form.controls:
-    print control
+# print response.get_data()
