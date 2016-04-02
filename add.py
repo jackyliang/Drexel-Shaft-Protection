@@ -7,8 +7,9 @@
 # OS X Yosemite 10.10.5 (14F27)
                                                                           
 ## Libraries:                                                             
-# Uses the mechanize library
-# 	pip install mechanize 
+# Uses the mechanize + lxml library
+# 	pip install mechanize
+# 	pip install lxml
 
 ## TODO:
 # 1. Drop classes
@@ -28,7 +29,7 @@ if os.path.exists(info_db):
     with open(info_db) as data_file:                                      
         info = json.load(data_file)                                       
 else:                                                                     
-    print "Error - please create a info.json file!"                       
+    print "ERROR: download info.json here: https://github.com/jackyliang/Drexel-Shaft-Protection/blob/master/change_me_to_info.json"                       
     sys.exit(0)                                                           
                                                                           
 # Grab username, password, and classes from info.json                     
@@ -106,7 +107,7 @@ for id_tag, crn in classes.items():
 	# to the form
 	if(id_tag_int >= 1 and id_tag_int <= 10):
 		# Ignore if input is empty
-		if(crn != ''):
+		if crn:
 			print 'Attempting to add CRN ' + crn + "..."
 			# Assign the CRN as the value based on the form name
 			# and crn_id form ID tag
