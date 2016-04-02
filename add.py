@@ -14,8 +14,7 @@
 # 1. Drop classes
 # 2. Better/more error handling
 # 3. Not hardcoding the term selection
-# 4. Show each submission error
-# 5. Show total credit hours
+# 4. Prettify course submission errors
 
 import mechanize, os, json, sys
 import lxml.html
@@ -53,11 +52,16 @@ url = 'https://login.drexel.edu/cas/login?service=https%3A%2F%2Fone.drexel.edu%2
 # Open the Drexel One URL
 response = br.open(url)
 
+print 'Reading info.json'
+
 # Select the first form element where the username and
 # password is
 br.select_form(nr = 0)
 br.form['username'] = username
 br.form['password'] = password
+
+print '(OK)'
+print 'Logging in for: ' + username
 
 # Login by submitting the form
 br.submit()
@@ -76,6 +80,8 @@ except Exception as e:
 	print 'ERROR: Seems like your login credentials are wrong. Check info.json to make sure!'
 	sys.exit(0)
 
+print '(OK)'
+
 # Select the academic year term
 form = br.form
 # TODO: select the first item instead of hardcoding
@@ -87,6 +93,10 @@ response = br.submit()
 # Select the second form in the add/remove class page
 br.select_form(nr=1)
 
+print '*****************************************************************'
+print '                  Submitting classes'
+print '*****************************************************************'
+
 # Iterate through our 'classes' object from info.json
 # which contains the ID tag and CRN
 for id_tag, crn in classes.items():
@@ -97,15 +107,21 @@ for id_tag, crn in classes.items():
 	if(id_tag_int >= 1 and id_tag_int <= 10):
 		# Ignore if input is empty
 		if(crn != ''):
-			print 'Adding your class with CRN ' + crn + "..."
+			print 'Attempting to add CRN ' + crn + "..."
 			# Assign the CRN as the value based on the form name
 			# and crn_id form ID tag
 			add_control = br.form.find_control(name='CRN_IN', id='crn_id' + id_tag)
 			add_control.value = crn
-			print 'Successfully added your class with CRN ' + crn + "!"
+			# print 'Successfully added your class with CRN ' + crn + "!"
 
 # Submit the form after all textboxes filled in
 response = br.submit()
+
+# Convert all forms to a list to access its key-value pairs
+f = list(br.forms())
+
+# Generate a string for each class
+test = ''
 
 # Read the HTML and convert it to XML for traversal
 html = br.response().read()
@@ -115,25 +131,10 @@ root = lxml.html.fromstring(html)
 credits = root.xpath('/html/body/div[3]/form/table[2]/tr[1]/td[2]/text()')
 credits = credits[0].strip(' ')
 
-# Print out all errors
-print '== All errors will be shown here (if any) =='
-
-for i in range(10):
-	# Print all errors
-	errors = root.xpath('/html/body/div[3]/form/table[4]/tr[' + str(i) + ']/td/text()')
-
-	# Join the list and print it if not empty
-	if errors:
-		print ' '.join(errors)
-
-# Convert all forms to a list to access its key-value pairs
-f = list(br.forms())
-
-# Generate a string for each class
-test = ''
-
 # Print out all added classes
-print '== All your added classes with total credits: ' + credits + ' =='
+print '*****************************************************************'
+print '       All your added classes with total credits: ' + credits
+print '*****************************************************************'
 
 for k,v in f[1]._pairs():
 	# Ignore dummy values
@@ -149,5 +150,18 @@ for k,v in f[1]._pairs():
 		test += ' ' + v
 	if k == 'TITLE':
 		test += ' ' + v
-		print test
+		print '    ' + test
 		test = ''
+
+# Print out all errors
+print '*****************************************************************'
+print '          All errors will be shown here (if any)'
+print '*****************************************************************'
+
+for i in range(10):
+	# Print all errors
+	errors = root.xpath('/html/body/div[3]/form/table[4]/tr[' + str(i) + ']/td/text()')
+
+	# Join the list and print it if not empty
+	if errors:
+		print '    [x] ' + ' '.join(errors)
