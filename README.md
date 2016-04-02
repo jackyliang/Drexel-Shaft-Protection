@@ -33,7 +33,7 @@ Drexel Shaft Protection allows you to automatically register for classes!
 		    }
 		}  
 	    
-	This serves as the file in which this script will read your Drexel username, password, and the classes you want to register classes for. 
+	This serves as the file in which this script will read your Drexel username, password, and the classes you want to register classes for. The value `33587` is a sample CRN and can be safely removed.
 
 2. Execute using `./add.py`
 
