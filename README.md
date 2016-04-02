@@ -48,6 +48,19 @@ Drexel Shaft Protection allows you to automatically register for classes!
 
     	pip install lxml
 
+### TODO
+
+1. Drop classes
+	- add a new associative array for `drop` in `nfo.json`
+	- remove classes by iterating through the CRNs
+2. Better/more error handling
+	- handling the incorrect login credentials
+	- ...
+3. Not hardcoding the term selection
+	- term selection is currently hardcoded for the specific term i.e. `201535`. See if a index be selected instead
+4. Show each submission error
+5. Show total credit hours
+
 ### Common errors and fixes
 
 1. Incorrect login credentials will give the following error
