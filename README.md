@@ -59,12 +59,13 @@ Drexel Shaft Protection allows you to automatically register for classes!
 	- [x] handling missing `info.json` file
 - Not hardcoding the term selection
 	- term selection is currently hardcoded for the specific term i.e. `201535`. See if a index be selected instead
-- [x] Show each submission error
-- [x] Show total credit hours
+- [x] ~~Show each submission error~~
+- [x] ~~Show total credit hours~~
+- Prettify the console outputs
 
 ### Common errors and fixes
 
-1. Incorrect login credentials will give the following error
+1. ~~Incorrect login credentials will give the following error~~ Added exception handling for this
 
 	    Traceback (most recent call last):
 		    File "./add.py", line 69, in <module>
@@ -72,8 +73,6 @@ Drexel Shaft Protection allows you to automatically register for classes!
 		  	File "/usr/local/lib/python2.7/site-packages/mechanize/_mechanize.py", line 524, in select_form
 		    	raise FormNotFoundError("no form matching "+description)
 		mechanize._mechanize.FormNotFoundError: no form matching nr 1
-
-	TODO: Better exception message
 
 ### What I used to develop Drexel Shaft Protection
 
