@@ -51,7 +51,7 @@ Drexel Shaft Protection allows you to automatically register for classes!
 ### TODO
 
 1. Drop classes
-	- add a new associative array for `drop` in `nfo.json`
+	- add a new associative array for `drop` in `info.json`
 	- remove classes by iterating through the CRNs
 2. Better/more error handling
 	- handling the incorrect login credentials
