@@ -15,13 +15,13 @@ Drexel Shaft Protection allows you to automatically register for classes!
 
 	***Note:*** *You can only add maximum 10 CRNs at a time and you MUST follow this exact template*
 
-		# Template for info.json
-		# Save this in the same directory as add.py
+		// Template for info.json
+		// Save this in the same directory as add.py
 		{   
 		    "username":"Your Drexel username",
 		    "password":"Your Drexel password",
 		    "classes": {
-		    	"1": "33587", # this is an example CRN
+		    	"1": "33587", // this is an example CRN
 		    	"2": "",
 		    	"3": "",
 		    	"4": "",

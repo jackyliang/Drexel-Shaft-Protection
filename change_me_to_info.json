@@ -1,16 +1,24 @@
+// Jacky Liang 2016
+// 
+// Name: info.json
+// 
+// Holds your login credentials and classes you
+// want to add
+// 
+// Save this in the same directory as add.py
 {   
     "username":"Your Drexel Username",
     "password":"Your Drexel Password",
     "classes": {
-    	"1": "",
-    	"2": "",
-    	"3": "",
-    	"4": "",
-    	"5": "",
-    	"6": "",
-    	"7": "",
-    	"8": "",
-    	"9": "",
-    	"10": ""
+        "1": "33587", // This is an example CRN
+        "2": "", // Each
+        "3": "", // Line
+        "4": "", // Occupies
+        "5": "", // One
+        "6": "", // CRN
+        "7": "", // Or
+        "8": "", // It
+        "9": "", // Won't
+        "10": "" // Work
     }
 }  
