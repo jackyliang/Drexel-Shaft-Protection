@@ -11,7 +11,7 @@ Drexel Shaft Protection allows you to automatically register for classes!
 
 ### How to use Drexel Shaft Protection
 
-1. Create an `info.json` file within the same directory as the `add.py` and use the following template:
+1. Create an `info.json` file within the same directory as the `add.py` and use the following template. Alternatively, download it [here](https://github.com/jackyliang/Drexel-Shaft-Protection/blob/master/change_me_to_info.json) and change the name to `info.json`
 
 	***Note:*** *You can only add maximum 10 CRNs at a time and you MUST follow this exact template*
 
