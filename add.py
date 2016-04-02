@@ -68,5 +68,30 @@ for id_tag, crn in classes.items():
 			add_control.value = crn
 			print 'Successfully added your class with CRN ' + crn + "!"
 
+# for f in list(br.forms()):
+# 	for p in list(f._pairs()):
+# 		print p.get_value('CRN_IN')
+
 response = br.submit()
+
+f = list(br.forms())
+test = ''
+
+print '== All your added classes =='
+
+for k,v in f[1]._pairs():
+	if v == 'DUMMY':
+		continue
+	if k == 'CRN_IN':
+		test += '[' + v + '] '
+	if k == 'SUBJ':
+		test += v
+	if k == 'CRSE':
+		test += '-' + v
+	if k == 'SEC':
+		test += ' ' + v
+	if k == 'TITLE':
+		test += ' ' + v
+		print test
+		test = ''	
 # print response.get_data()
