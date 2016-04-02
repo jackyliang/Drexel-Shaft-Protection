@@ -53,10 +53,10 @@ Drexel Shaft Protection allows you to automatically register for classes!
 - Drop classes
 	- add a new associative array for `drop` in `info.json`
 	- remove classes by iterating through the CRNs
-- [x] Better/more error handling
-	- [x] handling the incorrect login credentials
-	- [x] handling incorrect `info.json` file
-	- [x] handling missing `info.json` file
+- [x] ~~Better/more error handling~~
+	- [x] ~~handling the incorrect login credentials~~
+	- [x] ~~handling incorrect `info.json` file~~
+	- [x] ~~handling missing `info.json` file~~
 - Not hardcoding the term selection
 	- term selection is currently hardcoded for the specific term i.e. `201535`. See if a index be selected instead
 - [x] ~~Show each submission error~~
