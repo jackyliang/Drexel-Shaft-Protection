@@ -34,19 +34,23 @@ Drexel Shaft Protection allows you to automatically register for classes!
 	    
 	This serves as the file in which this script will read your Drexel username, password, and the classes you want to register classes for. 
 
-2. `./add.py`
+2. Execute using `./add.py`
+
+3. Alternatively, set up a scheduled task 5 ms after your time ticket i.e. `7:30:00:50 AM` on your favorite operating system
 
 ### What custom Python libraries I used
 
-1. `lxml` for HTML/XML parsing and scraping
+1. `mechanize` for browser emulation
+	
+	`pip install mechanize`
+
+2. `lxml` for HTML/XML parsing and scraping
 
     `pip install lxml`
 
-2. `fake_useragent` to generate randomized fake user agents 
-
-    `pip install fake_useragent`
-
 ### Common errors and fixes
+
+1. Incorrect login credentials will give the following error
 
     Traceback (most recent call last):
 	    File "./add.py", line 69, in <module>
@@ -55,9 +59,7 @@ Drexel Shaft Protection allows you to automatically register for classes!
 	    	raise FormNotFoundError("no form matching "+description)
 	mechanize._mechanize.FormNotFoundError: no form matching nr 1
 
-This means your username/password is incorrect.
-
-TODO: Catch this exception and return a better error message
+	TODO: Better exception message
 
 ### What I used to develop Drexel Shaft Protection
 
