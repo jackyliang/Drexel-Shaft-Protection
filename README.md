@@ -42,22 +42,22 @@ Drexel Shaft Protection allows you to automatically register for classes!
 
 1. `mechanize` for browser emulation
 	
-	`pip install mechanize`
+		pip install mechanize
 
 2. `lxml` for HTML/XML parsing and scraping
 
-    `pip install lxml`
+    	pip install lxml
 
 ### Common errors and fixes
 
 1. Incorrect login credentials will give the following error
 
-    Traceback (most recent call last):
-	    File "./add.py", line 69, in <module>
-	    	br.select_form(nr=1)
-	  	File "/usr/local/lib/python2.7/site-packages/mechanize/_mechanize.py", line 524, in select_form
-	    	raise FormNotFoundError("no form matching "+description)
-	mechanize._mechanize.FormNotFoundError: no form matching nr 1
+	    Traceback (most recent call last):
+		    File "./add.py", line 69, in <module>
+		    	br.select_form(nr=1)
+		  	File "/usr/local/lib/python2.7/site-packages/mechanize/_mechanize.py", line 524, in select_form
+		    	raise FormNotFoundError("no form matching "+description)
+		mechanize._mechanize.FormNotFoundError: no form matching nr 1
 
 	TODO: Better exception message
 
