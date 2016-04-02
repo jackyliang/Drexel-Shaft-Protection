@@ -40,15 +40,20 @@ This serves as the file in which this script will read your Drexel username, pas
 
 1. `lxml` for HTML/XML parsing and scraping
 
-    pip install lxml
+    `pip install lxml`
 
 2. `fake_useragent` to generate randomized fake user agents 
 
-    pip install fake_useragent
+    `pip install fake_useragent`
 
 ### Common errors and fixes
 
-    print page.cookies['IDMSESSID'] KeyError
+    Traceback (most recent call last):
+	    File "./add.py", line 69, in <module>
+	    	br.select_form(nr=1)
+	  	File "/usr/local/lib/python2.7/site-packages/mechanize/_mechanize.py", line 524, in select_form
+	    	raise FormNotFoundError("no form matching "+description)
+	mechanize._mechanize.FormNotFoundError: no form matching nr 1
 
 This means your username/password is incorrect.
 
