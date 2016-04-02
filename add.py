@@ -18,7 +18,7 @@
 # 5. Show total credit hours
 
 import mechanize, os, json, sys
-from lxml import html
+import lxml.html
 
 # Path and name to info.json which is where we store
 # our credentials and classes to add
@@ -33,9 +33,13 @@ else:
     sys.exit(0)                                                           
                                                                           
 # Grab username, password, and classes from info.json                     
-username = info['username']                                               
-password = info['password']
-classes = info['classes']
+try:
+	username = info['username']                                               
+	password = info['password']
+	classes = info['classes']
+except Exception as e:
+	print 'ERROR: There is something wrong with your info.json file!'
+	sys.exit(0)
 
 # Create a new Mechanize browser
 br = mechanize.Browser()
@@ -66,7 +70,11 @@ add_drop = br.open('https://bannersso.drexel.edu/ssomanager/c/SSB?pkg=bwszkfrag.
 
 # Select the second form in the page which is the select
 # for the academic year
-br.select_form(nr=1)
+try:
+	br.select_form(nr=1)
+except Exception as e:
+	print 'ERROR: Seems like your login credentials are wrong. Check info.json to make sure!'
+	sys.exit(0)
 
 # Select the academic year term
 form = br.form
@@ -99,6 +107,25 @@ for id_tag, crn in classes.items():
 # Submit the form after all textboxes filled in
 response = br.submit()
 
+# Read the HTML and convert it to XML for traversal
+html = br.response().read()
+root = lxml.html.fromstring(html)
+
+# Get total credits
+credits = root.xpath('/html/body/div[3]/form/table[2]/tr[1]/td[2]/text()')
+credits = credits[0].strip(' ')
+
+# Print out all errors
+print '== All errors will be shown here (if any) =='
+
+for i in range(10):
+	# Print all errors
+	errors = root.xpath('/html/body/div[3]/form/table[4]/tr[' + str(i) + ']/td/text()')
+
+	# Join the list and print it if not empty
+	if errors:
+		print ' '.join(errors)
+
 # Convert all forms to a list to access its key-value pairs
 f = list(br.forms())
 
@@ -106,7 +133,7 @@ f = list(br.forms())
 test = ''
 
 # Print out all added classes
-print '== All your added classes =='
+print '== All your added classes with total credits: ' + credits + ' =='
 
 for k,v in f[1]._pairs():
 	# Ignore dummy values
