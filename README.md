@@ -1,6 +1,6 @@
 # Drexel Shaft Protection
 
-<img src="http://i.imgur.com/60DCbzR.gifv">
+<img src="http://i.imgur.com/60DCbzR.gif">
 
 ### What on earth is Drexel Shaft Protection?
 
