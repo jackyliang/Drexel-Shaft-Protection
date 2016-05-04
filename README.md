@@ -41,10 +41,6 @@ Drexel Shaft Protection allows you to automatically register for classes!
 
 3. Alternatively, set up a scheduled task 5 ms after your time ticket i.e. `7:30:00:50 AM` on your favorite operating system
 
-Note: If this is a new quarter, you will first need to manually update
-your registration information. Fortunately, can access this page even
-before your registration ticket. This application WILL NOT WORK if you
-do not do that first. 
 
 ### What custom Python libraries I used
 
@@ -81,6 +77,11 @@ do not do that first.
 		  	File "/usr/local/lib/python2.7/site-packages/mechanize/_mechanize.py", line 524, in select_form
 		    	raise FormNotFoundError("no form matching "+description)
 		mechanize._mechanize.FormNotFoundError: no form matching nr 1
+
+2. If this is a new quarter, you will first need to manually update
+your registration information. Fortunately, can access this page even
+before your registration ticket. This application WILL NOT WORK if you
+do not do that first. 
 
 ### What I used to develop Drexel Shaft Protection
 
