@@ -86,7 +86,7 @@ print '(OK)'
 # Select the academic year term
 form = br.form
 # TODO: select the first item instead of hardcoding
-form['term_in'] = ['201535',]
+form['term_in'] = ['201545',]
 
 # Submit the form
 response = br.submit()
