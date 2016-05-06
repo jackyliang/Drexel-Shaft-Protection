@@ -137,8 +137,7 @@ credits = root.xpath('/html/body/div[3]/form/table[2]/tr[1]/td[2]/text()')
 try:
         credits = credits[0].strip(' ')
 except Exception as e:
-	print 'ERROR: Seems like you are not a student anymore.'
-	sys.exit(0)
+        credits = '0'
 
 # Print out all added classes
 print '*****************************************************************'
@@ -168,7 +167,7 @@ print '          All errors will be shown here (if any)'
 print '*****************************************************************'
 
 for i in range(10):
-	# Print all errors
+	# Print all errors 
 	errors = root.xpath('/html/body/div[3]/form/table[4]/tr[' + str(i) + ']/td/text()')
 
 	# Join the list and print it if not empty
