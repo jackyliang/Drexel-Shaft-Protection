@@ -15,9 +15,8 @@ Drexel Shaft Protection was created to help fellow Drexel students to automatica
 
 1. Install the Mechanize and lxml library
 
-	pip install mechanize
-
-	pip install lxml
+		pip install mechanize
+		pip install lxml
 
 2. Change name of `change_me_to_info.json` to `info.json`. Alternatively, download it [here](https://github.com/jackyliang/Drexel-Shaft-Protection/blob/master/change_me_to_info.json) and change the name to `info.json`. Template of `info.json` is below. 
 
