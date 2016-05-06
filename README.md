@@ -52,14 +52,14 @@ Drexel Shaft Protection allows you to automatically register for classes!
 
 1. Registering for a class in a new quarter
 
-If this is a new quarter, you will first need to manually update your registration information. Fortunately, you can access this page even before your registration ticket. This application WILL NOT WORK if you do not do that first, and you will get the following error: 
+	If this is a new quarter, you will first need to manually update your registration information. Fortunately, you can access this page even before your registration ticket. This application WILL NOT WORK if you do not do that first, and you will get the following error: 
 
 2. Running the script before your class registration time slot:
 
-You will receive the following error. This is normal as the script cannot find the dropdown that selects your term. It will work when you execute the script on the registration time. 
+	You will receive the following error. This is normal as the script cannot find the dropdown that selects your term. It will work when you execute the script on the registration time. 
 
-	File "./add.py", line 95, in <module>
-    	br.select_form(nr=1)
+		File "./add.py", line 95, in <module>
+	    	br.select_form(nr=1)
 
 ### What custom Python libraries I used
 
