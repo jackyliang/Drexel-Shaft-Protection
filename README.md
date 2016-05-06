@@ -9,7 +9,7 @@ now all the classes are full? Have you ever..
 
 Oh of course you have! You've always been Drexel Shafted™!
 
-Drexel Shaft Protection allows you to automatically register for classes!
+Drexel Shaft Protection was created to help fellow Drexel students to automatically register for classes! Well, at least those that are willing to get their hands a little dirty and know a little code :).
 
 ### How to use Drexel Shaft Protection
 
