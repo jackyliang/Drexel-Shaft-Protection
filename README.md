@@ -57,8 +57,7 @@ Drexel Shaft Protection was created to help fellow Drexel students to automatica
 
 	If you try to run the script before your class registration time slot, you will receive the following error.  
 
-		File "./add.py", line 95, in <module>
-	    	br.select_form(nr=1)
+        ERROR: It seems like it's not your registration time yet. If it is, then try again in a few seconds.
 	    	
 	This is normal as the script cannot find the dropdown that selects your term. It will work when you execute the script on the registration time.
 
