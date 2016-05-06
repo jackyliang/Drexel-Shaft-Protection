@@ -95,8 +95,8 @@ response = br.submit()
 try:
 	br.select_form(nr=1)
 except Exception as e:
-	print 'ERROR: It seems like it\'s not your registration time yet. If it is, then try again in a few seconds.'
-	sys.exit(0)
+	print 'ERROR: It seems like it is not your registration time yet. If it is, then try again in a few seconds.'
+        sys.exit(0)
 
 print '*****************************************************************'
 print '                  Submitting classes'
