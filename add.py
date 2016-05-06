@@ -92,7 +92,11 @@ form['term_in'] = ['201545',]
 response = br.submit()
 
 # Select the second form in the add/remove class page
-br.select_form(nr=1)
+try:
+	br.select_form(nr=1)
+except Exception as e:
+	print 'ERROR: It seems like it\'s not your registration time yet. If it is, then try again in a few seconds.'
+	sys.exit(0)
 
 print '*****************************************************************'
 print '                  Submitting classes'
@@ -130,7 +134,11 @@ root = lxml.html.fromstring(html)
 
 # Get total credits
 credits = root.xpath('/html/body/div[3]/form/table[2]/tr[1]/td[2]/text()')
-credits = credits[0].strip(' ')
+try:
+        credits = credits[0].strip(' ')
+except Exception as e:
+	print 'ERROR: Seems like you are not a student anymore.'
+	sys.exit(0)
 
 # Print out all added classes
 print '*****************************************************************'
