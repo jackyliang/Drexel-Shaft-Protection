@@ -9,14 +9,18 @@ now all the classes are full? Have you ever..
 
 Oh of course you have! You've always been Drexel Shafted™!
 
-Drexel Shaft Protection allows you to automatically register for classes!
+Drexel Shaft Protection was created to help fellow Drexel students to automatically register for classes! Well, at least those that are willing to get their hands a little dirty and know a little code :).
 
 ### How to use Drexel Shaft Protection
 
-1. Create an `info.json` file within the same directory as the `add.py` and use the following template. Alternatively, download it [here](https://github.com/jackyliang/Drexel-Shaft-Protection/blob/master/change_me_to_info.json) and change the name to `info.json`
+1. Install the Mechanize and lxml library
+
+		pip install mechanize
+		pip install lxml
+
+2. Change name of `change_me_to_info.json` to `info.json`. Alternatively, download it [here](https://github.com/jackyliang/Drexel-Shaft-Protection/blob/master/change_me_to_info.json) and change the name to `info.json`. Template of `info.json` is below. 
 
 	***Note:*** *You can only add maximum 10 CRNs at a time and you MUST follow this exact template*. The value `33587` is a sample CRN and can be removed.
-
 
 		{   
 		    "username":"Your Drexel username",
@@ -36,11 +40,27 @@ Drexel Shaft Protection allows you to automatically register for classes!
 		}  
 	    
 	This serves as the file in which this script will read your Drexel username, password, and the classes you want to register classes for.
+	
+	*Note*: I do not save or harvest your Drexel usernames or password. 
 
 2. Execute using `./add.py`
 
-3. Alternatively, set up a scheduled task 5 ms after your time ticket i.e. `7:30:00:50 AM` on your favorite operating system
+3. Alternatively, use the "[at](http://www.computerhope.com/unix/uat.htm)" command (thanks [Tomer](https://github.com/eclair4151) for the suggestion) and set a time that's one second after your registration time (i.e. execute at `7:30:01`.. `7:30:02`.. `7:30:3`..) for 4 - 5 time per second. That'll likely better handle your system clock not matching Drexel One's clock. 
 
+### Really important information you should read
+
+1. Registering for a class in a new quarter
+
+	If this is a new quarter, you ***MUST*** manually update your registration information within the Drexel One "Add/Drop Class" page. Fortunately, you can access this page even before your registration ticket. This application WILL NOT WORK if you do not do that first.
+
+2. Running the script before your class registration time slot:
+
+	If you try to run the script before your class registration time slot, you will receive the following error.  
+
+		File "./add.py", line 95, in <module>
+	    	br.select_form(nr=1)
+	    	
+	This is normal as the script cannot find the dropdown that selects your term. It will work when you execute the script on the registration time.
 
 ### What custom Python libraries I used
 
@@ -54,6 +74,8 @@ Drexel Shaft Protection allows you to automatically register for classes!
 
 ### TODO
 
+- *Important*: Error message for telling the user they need to fill the pre-registration form
+- *Important*: Error message for telling the user that the script failed because it is not their class registration time slot
 - Drop classes
 	- add a new associative array for `drop` in `info.json`
 	- remove classes by iterating through the CRNs
@@ -66,22 +88,6 @@ Drexel Shaft Protection allows you to automatically register for classes!
 - ~~Show each submission error~~
 - ~~Show total credit hours~~
 - Prettify the console outputs
-
-### Common errors and fixes
-
-1. ~~Incorrect login credentials will give the following error~~ Added exception handling for this
-
-	    Traceback (most recent call last):
-		    File "./add.py", line 69, in <module>
-		    	br.select_form(nr=1)
-		  	File "/usr/local/lib/python2.7/site-packages/mechanize/_mechanize.py", line 524, in select_form
-		    	raise FormNotFoundError("no form matching "+description)
-		mechanize._mechanize.FormNotFoundError: no form matching nr 1
-
-2. If this is a new quarter, you will first need to manually update
-your registration information. Fortunately, can access this page even
-before your registration ticket. This application WILL NOT WORK if you
-do not do that first. 
 
 ### What I used to develop Drexel Shaft Protection
 
