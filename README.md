@@ -1,6 +1,6 @@
 # Drexel Shaft Protection
 
-*"I wish I'd had this in undergrad. LOL."*
+*"I wish I'd had this in undergrad. LOL."* - actual Drexel student comment
 
 <img src="http://i.imgur.com/60DCbzR.gif">
 
