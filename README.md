@@ -63,13 +63,11 @@ Drexel Shaft Protection was created to help fellow Drexel students to automatica
 	
 ### People love the Drexel Shaft Protection
 
-	"I wish I'd had this in undergrad. LOL."
+`"I wish I'd had this in undergrad. LOL."`
 
-	"Drexel-shaft-protection" I think we could all use a bit more of that"
+`"Drexel-shaft-protection" I think we could all use a bit more of that"`
 
-	"Why do you come up with all this shit AFTER we're getting ready to graduate? I could've used this so many times, instead of having to wake up early and register for classes."
-
-	"Jacky "Jesus" Liang"
+`"Why do you come up with all this shit AFTER we're getting ready to graduate? I could've used this so many times, instead of having to wake up early and register for classes."`
 
 ### What custom Python libraries I used
 
