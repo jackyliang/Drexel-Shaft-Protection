@@ -60,6 +60,16 @@ Drexel Shaft Protection was created to help fellow Drexel students to automatica
         ERROR: It seems like it's not your registration time yet. If it is, then try again in a few seconds.
 	    	
 	This is normal as the script cannot find the dropdown that selects your term. It will work when you execute the script on the registration time.
+	
+### People love the Drexel Shaft Protection
+
+	"I wish I'd had this in undergrad. LOL."
+
+	"Drexel-shaft-protection" I think we could all use a bit more of that"
+
+	"Why do you come up with all this shit AFTER we're getting ready to graduate? I could've used this so many times, instead of having to wake up early and register for classes."
+
+	"Jacky "Jesus" Liang"
 
 ### What custom Python libraries I used
 
