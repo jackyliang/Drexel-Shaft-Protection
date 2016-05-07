@@ -65,6 +65,8 @@ Drexel Shaft Protection was created to help fellow Drexel students to automatica
 	
 ### People love the Drexel Shaft Protection
 
+*"Drexel-shaft-protection is an amazing script to avoid those days where you waste time manually looking up and entering classes during registration day only to find you took too long and the class is full. It's convenient and it works!"*
+
 *"I wish I'd had this in undergrad. LOL."*
 
 *"Drexel-shaft-protection" I think we could all use a bit more of that"*
