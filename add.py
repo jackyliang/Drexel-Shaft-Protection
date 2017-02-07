@@ -29,7 +29,7 @@ if os.path.exists(info_db):
     with open(info_db) as data_file:                                      
         info = json.load(data_file)                                       
 else:                                                                     
-    print "ERROR: download info.json here: https://github.com/jackyliang/Drexel-Shaft-Protection/blob/master/change_me_to_info.json"
+    print "ERROR: download info.json here: https://github.com/jackyliang/Drexel-Shaft-Protection/blob/master/info.json"
     sys.exit(0)                                                           
                                                                           
 # Grab username, password, and classes from info.json                     
@@ -66,12 +66,6 @@ print 'Logging in for: ' + username
 # Login by submitting the form
 br.submit()
 
-#Drexel broken? need to make 2 requests. the first one fails
-try:
-	br.open('https://one.drexel.edu/web/university/academics')
-except:
-	print ''
-br.open('https://one.drexel.edu/web/university/academics')
 # Navigate to the "Add/Drop Classes" page
 add_drop = br.open('https://bannersso.drexel.edu/ssomanager/c/SSB?pkg=bwszkfrag.P_DisplayFinResponsibility%3Fi_url%3Dbwskfreg.P_AltPin')
 
