@@ -29,7 +29,7 @@ if os.path.exists(info_db):
     with open(info_db) as data_file:                                      
         info = json.load(data_file)                                       
 else:                                                                     
-    print "ERROR: download info.json here: https://github.com/jackyliang/Drexel-Shaft-Protection/blob/master/info.json"
+    print "ERROR: download info.json here: https://github.com/jackyliang/Drexel-Shaft-Protection/blob/master/change_me_to_info.json"
     sys.exit(0)                                                           
                                                                           
 # Grab username, password, and classes from info.json                     
