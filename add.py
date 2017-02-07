@@ -29,7 +29,7 @@ if os.path.exists(info_db):
     with open(info_db) as data_file:                                      
         info = json.load(data_file)                                       
 else:                                                                     
-    print "ERROR: download info.json here: https://github.com/jackyliang/Drexel-Shaft-Protection/blob/master/change_me_to_info.json"                       
+    print "ERROR: download info.json here: https://github.com/jackyliang/Drexel-Shaft-Protection/blob/master/info.json"
     sys.exit(0)                                                           
                                                                           
 # Grab username, password, and classes from info.json                     
@@ -43,12 +43,11 @@ except Exception as e:
 
 # Create a new Mechanize browser
 br = mechanize.Browser()
-
 # Allow redirection as Drexel One has a ton of redirections
 br.set_handle_redirect(True)
-
+br.set_handle_refresh(True)
 # Drexel One login URL
-url = 'https://login.drexel.edu/cas/login?service=https%3A%2F%2Fone.drexel.edu%2Fc%2Fportal%2Flogin'
+url = 'https://connect.drexel.edu'
 
 # Open the Drexel One URL
 response = br.open(url)
@@ -58,17 +57,14 @@ print 'Reading info.json'
 # Select the first form element where the username and
 # password is
 br.select_form(nr = 0)
-br.form['username'] = username
-br.form['password'] = password
+br.form['j_username'] = username
+br.form['j_password'] = password
 
 print '(OK)'
 print 'Logging in for: ' + username
 
 # Login by submitting the form
 br.submit()
-
-# Navigate to the "Academics" page
-academics = br.open('https://one.drexel.edu/web/university/academics?gpi=10230')
 
 # Navigate to the "Add/Drop Classes" page
 add_drop = br.open('https://bannersso.drexel.edu/ssomanager/c/SSB?pkg=bwszkfrag.P_DisplayFinResponsibility%3Fi_url%3Dbwskfreg.P_AltPin')
@@ -86,7 +82,7 @@ print '(OK)'
 # Select the academic year term
 form = br.form
 # TODO: select the first item instead of hardcoding
-form['term_in'] = ['201625',]
+form['term_in'] = ['201635']
 
 # Submit the form
 response = br.submit()
@@ -167,7 +163,7 @@ print '          All errors will be shown here (if any)'
 print '*****************************************************************'
 
 for i in range(10):
-	# Print all errors 
+	# Print all errors
 	errors = root.xpath('/html/body/div[3]/form/table[4]/tr[' + str(i) + ']/td/text()')
 
 	# Join the list and print it if not empty
